@@ -1,0 +1,56 @@
+# Device information
+deviceinfo_name="Samsung Galaxy Tab A7 Lite"
+deviceinfo_manufacturer="Samsung"
+deviceinfo_codename="gta7litewifi"
+deviceinfo_arch="arm64"
+deviceinfo_kernel_arch="aarch64"
+
+# Kernel source
+deviceinfo_kernel_source="https://github.com/dev686868/halium_kernel_samsung_gta7litewifi.git"
+deviceinfo_kernel_source_branch="halium-12.0"
+deviceinfo_kernel_defconfig="gta7litewifi_defconfig halium.config"
+
+# Kernel cmdline
+deviceinfo_kernel_cmdline="bootopt=64S3,32N2,64N2 root=/dev/block/mmcblk0p51 rootfstype=ext4 ro rootwait init=/init androidboot.selinux=permissive"
+
+# Kernel compiler options
+deviceinfo_kernel_clang_compile="true"
+deviceinfo_kernel_llvm_compile="true"
+
+# Ramdisk compression
+deviceinfo_ramdisk_compression="lz4"
+
+# Halium version
+deviceinfo_halium_version=14
+
+# Boot image header configuration
+deviceinfo_bootimg_header_version="2"
+deviceinfo_bootimg_partition_size="33554432"
+deviceinfo_bootimg_os_version="12.0.0"
+deviceinfo_bootimg_os_patch_level="2021-09"
+deviceinfo_bootimg_board=""
+
+# Flash offsets (từ boot.img dump Tab A7 Lite)
+deviceinfo_flash_pagesize="2048"
+deviceinfo_flash_offset_base="0x00000000"
+deviceinfo_flash_offset_kernel="0x40080000"
+deviceinfo_flash_offset_ramdisk="0x51b00000"
+deviceinfo_flash_offset_second="0x00f00000"
+deviceinfo_flash_offset_tags="0x47880000"
+deviceinfo_flash_offset_dtb="0x47c80000"
+
+# DTB/DTBO configuration
+deviceinfo_dtb="mediatek/mt6765.dtb mediatek/gta7litewifi.dtb"
+
+# Recovery partition
+deviceinfo_has_recovery_partition="true"
+deviceinfo_recovery_partition_size="67108864"
+
+# Rootfs configuration
+deviceinfo_rootfs_image_sector_size="4096"
+
+# Vendor boot
+deviceinfo_bootimg_append_vbmeta="true"
+
+# Ubuntu Touch release
+deviceinfo_ubuntu_touch_release="24.04-1.x"
