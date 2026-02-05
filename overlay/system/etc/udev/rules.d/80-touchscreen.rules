@@ -1,0 +1,1 @@
+SUBSYSTEM=="input", ATTRS{name}=="mtk-tpd", ENV{ID_INPUT_MOUSE}="0"

@@ -1,0 +1,5 @@
+#!/bin/sh -e
+
+grep -q IQcRilAudio /vendor/etc/vintf/manifest.xml /vendor/odm/etc/vintf/manifest_dsds.xml /vendor/odm/etc/vintf/manifest_qsqs.xml /vendor/odm/etc/vintf/manifest_ss.xml /vendor/odm/etc/vintf/manifest_tsts.xml
+
+exit $?

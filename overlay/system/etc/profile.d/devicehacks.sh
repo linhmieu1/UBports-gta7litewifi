@@ -1,0 +1,4 @@
+#!/bin/sh
+
+export UC_SHAPE_MIPMAPS=1
+export QT_ENABLE_GLYPH_CACHE_WORKAROUND=1
