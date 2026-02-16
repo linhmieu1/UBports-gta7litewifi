@@ -25,7 +25,7 @@
 
 ##  Device Specifications
 
-### Samsung Galaxy Tab A7 Lite LTE (gta7lite)
+### Samsung Galaxy Tab A7 Lite (gta7lite)
 
 | Component | Specification |
 |-----------|--------------|
@@ -42,22 +42,6 @@
 | **OS (Shipped)** | Android 11 (Latest: Android 14) |
 | **Kernel** | 4.19.191 |
 
-### Samsung Galaxy Tab A7 Lite WiFi (gta7litewifi)
-
-| Component | Specification |
-|-----------|--------------|
-| **Chipset** | Mediatek MT6765 Helio P35T |
-| **GPU** | PowerVR GE8320 |
-| **RAM** | 3/4 GB |
-| **Storage** | 32/64 GB |
-| **Card Slot** | microSD |
-| **Battery** | Li-Po 5100 mAh (non-removable) |
-| **Display** | 8.7" TFT LCD, 800x1280 pixels, 16:10 ratio (~149 ppi) |
-| **Rear Camera** | 2 MP |
-| **Front Camera** | 0.8 MP |
-| **OS (Shipped)** | Android 11 (Latest: Android 14) |
-| **Kernel** | 4.19.191 |
-
 ---
 
 ##  Feature Status
@@ -67,9 +51,9 @@
 | Feature | Status | Feature | Status |
 |---------|--------|---------|--------|
 | Recovery | ✅ Working | Boot | ❌ Not Working |
-| SSH | ✅ Working | Bluetooth | ❌ Not Working |
-| Charge | ✅ Working | Camera | ❌ Not Working |
-| GPU | ✅ Working | GPS | ❌ Not Working |
+| SSH | ❌ Not Working | Bluetooth | ❌ Not Working |
+| Charge | ❌ Not Working | Camera | ❌ Not Working |
+| GPU | ❌ Not Working | GPS | ❌ Not Working |
 | | | Audio | ❌ Not Working |
 | | | Bluetooth Audio | ❌ Not Working |
 | | | Waydroid | ❌ Not Working |
@@ -249,13 +233,15 @@ fastboot flash system images/system.img
 fastboot reboot
 ```
 
-# YAYS, you just install Ubuntu touch on this tablet (debug yourself for boot and if you sucess to boot, please pull request that project to this repo)
+# YAYS, you just install Ubuntu touch on this tablet (While the device is completing its port and flashing can be done, it is still in a very early stage of development.)
+(debug yourself for boot and if you sucess to boot, please pull request that project to this repo)
 
 
 
 ![SSH work](./refs/SSHwork.jpg)
 
 
+command to get ssh (init shell)
 ```bash
 while true; do
     INTERFACE=$(ip -br link show | grep -E 'enp|usb' | awk '{print $1}' | head -n 1)
