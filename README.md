@@ -202,7 +202,7 @@ Hold **VOLUME UP + POWER BUTTON** simultaneously until you enter RECOVERY mode.
 
 go Advanded > Enter fastboot
 
-![UBports recovery on Samsung Galaxy Tab A7 Lite](./refs/RECOVERY.png)
+![UBports recovery on Samsung Galaxy Tab A7 Lite](./refs//RECOVERY.png)
 **UBports recovery on Samsung Galaxy Tab A7 Lite (gta7lite/gta7litewifi)**
 
 
