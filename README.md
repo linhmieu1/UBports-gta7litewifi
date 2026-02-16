@@ -2,10 +2,10 @@
 
 
 #  
-# BASED ON LENOVO M10 HD GEN 2 PORT (SAME SOC MT67XX AND SAME KERNEL VERSION)
+# BASED ON UBPORTS LENOVO M10 HD GEN 2 
 
 
-# Samsung Galaxy Tab A7 Lite - Ubuntu Touch Port
+# Samsung Galaxy Tab A7 Lite
 
 <div align="center">
   
