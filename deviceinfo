@@ -24,9 +24,11 @@ deviceinfo_flash_offset_tags="0x47880000"
 deviceinfo_flash_offset_dtb="0x47c80000"
 deviceinfo_dtb="gta7litewifi_dtb"
 deviceinfo_dtbo=""
+
+# change to focal if you want
 deviceinfo_ubuntu_touch_release="24.04-1.x"
+
 deviceinfo_rootfs_image_sector_size="4096"
 deviceinfo_system_partition_size="3584M"
 deviceinfo_rootfs_image_size="1310720"
-# deviceinfo_kernel_cmdline="bootopt=64S3,32N2,64N2 systempart=/dev/mapper/system console=tty0 androidboot.selinux=permissive"
 
