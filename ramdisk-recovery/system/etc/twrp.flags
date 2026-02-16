@@ -1,0 +1,33 @@
+# Symlinked partitions
+/system_image	emmc		/dev/block/mapper/system						flags=backup=0;flashimg;display="System Image"
+/vendor_image	emmc		/dev/block/mapper/vendor						flags=backup=0;flashimg;display="Vendor Image"
+/product_image	emmc		/dev/block/mapper/product						flags=backup=0;flashimg;display="Product Image"
+
+# FOTA
+/dtbo		emmc		/dev/block/by-name/dtbo								flags=backup=1;display="Dtbo"
+/md1img		emmc		/dev/block/by-name/md1img
+/spmfw		emmc		/dev/block/by-name/spmfw
+/sspm_1		emmc		/dev/block/by-name/sspm_1
+/sspm_2		emmc		/dev/block/by-name/sspm_2
+
+# Physical partitions - Data
+/metadata	ext4		/dev/block/by-name/md_udc							flags=backup=1;display="Metadata";wipeingui
+/data		ext4		/dev/block/by-name/userdata							
+/cache		ext4		/dev/block/by-name/cache							flags=backup=1;display="Cache"
+
+# Physical partitions - Important Data - Must Backup
+/nvram			emmc		/dev/block/by-name/nvram							flags=backup=1;display="Non-volatile Ram (NVRAM)"
+/nvdata			ext4		/dev/block/by-name/nvdata							flags=backup=1;display="Non-volatile Data";subpartitionof=/nvram
+/nvcfg			ext4		/dev/block/by-name/nvcfg							flags=backup=1;display="Non-volatile Config";subpartitionof=/nvram
+/persistent		emmc		/dev/block/platform/bootdevice/by-name/persistent	flags=backup=1;display="Persistent";subpartitionof=/nvram
+
+# Physical partitions - Backupable
+/boot			emmc	/dev/block/by-name/boot								flags=backup=1;display="Boot";flashimg=1
+/recovery		emmc	/dev/block/by-name/recovery							flags=backup=1;display="Recovery";flashimg=1
+/vbmeta_system	emmc	/dev/block/by-name/vbmeta_system					flags=backup=1;display="Vbmeta System";flashimg=1;
+/vbmeta_vendor	emmc	/dev/block/by-name/vbmeta_vendor					flags=backup=1;display="Vbmeta Vendor";flashimg=1;
+
+# External storage
+/external_sd	vfat		/dev/block/mmcblk1p1	/dev/block/mmcblk1		flags=display="External SD";storage;wipeingui;removable
+/usb_otg		auto		/dev/block/sda1 		/dev/block/sda			flags=display="USB-OTG";storage;wipeingui;removable;
+

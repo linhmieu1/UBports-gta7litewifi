@@ -1,0 +1,3 @@
+on boot
+    setprop persist.sys.usb.config none
+    setprop sys.usb.config none

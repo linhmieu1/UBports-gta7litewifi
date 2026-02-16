@@ -1,0 +1,24 @@
+gta7litewifi:
+  Vendor: Samsung
+  codename: gta7litewifi
+  Names:
+    - Galaxy Tab A7 Lite
+    - gta7litewifi
+    - SM-T220
+    - Samsung Tab A7 Lite
+  PrettyName: Samsung Galaxy Tab A7 Lite
+  DeviceType: tablet
+  GridUnit: 10
+  PrimaryOrientation:
+    - Portrait
+  SupportedOrientations:
+    - Portrait
+    - InvertedPortrait
+    - Landscape
+    - InvertedLandscape
+  DoubleTapToWake:
+    - /proc/android_touch/gesture_control|1|0
+  XwaylandShm:
+    - true
+  VibrateDurationExtraMs: 40
+  FilesystemEncryption: fasle

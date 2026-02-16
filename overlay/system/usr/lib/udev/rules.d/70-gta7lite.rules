@@ -1,0 +1,68 @@
+# Basic node
+ACTION=="add", KERNEL=="null", OWNER="root", GROUP="root", MODE="0666"
+ACTION=="add", KERNEL=="zero", OWNER="root", GROUP="root", MODE="0666"
+ACTION=="add", KERNEL=="full", OWNER="root", GROUP="root", MODE="0666"
+ACTION=="add", KERNEL=="tty", OWNER="root", GROUP="root", MODE="0666"
+ACTION=="add", KERNEL=="random", OWNER="root", GROUP="root", MODE="0666"
+ACTION=="add", KERNEL=="urandom", OWNER="root", GROUP="root", MODE="0666"
+ACTION=="add", KERNEL=="ashmem", OWNER="root", GROUP="root", MODE="0666"
+ACTION=="add", KERNEL=="binder", OWNER="root", GROUP="root", MODE="0666"
+ACTION=="add", KERNEL=="hwbinder", OWNER="root", GROUP="root", MODE="0666"
+ACTION=="add", KERNEL=="vndbinder", OWNER="root", GROUP="root", MODE="0666"
+
+# Graphics / input / audio
+ACTION=="add", KERNEL=="graphics/*", OWNER="root", GROUP="android_graphics", MODE="0660"
+ACTION=="add", KERNEL=="input/*", OWNER="root", GROUP="input", MODE="0660"
+ACTION=="add", KERNEL=="snd/*", OWNER="system", GROUP="audio", MODE="0660"
+
+# USB
+ACTION=="add", KERNEL=="bus/usb/*", OWNER="root", GROUP="usb", MODE="0660"
+ACTION=="add", KERNEL=="mtp_usb", OWNER="root", GROUP="plugdev", MODE="0660"
+ACTION=="add", KERNEL=="usb_accessory", OWNER="root", GROUP="usb", MODE="0660"
+
+# Primary partion Tab A7 Lite
+ACTION=="add", KERNEL=="block/platform/bootdevice/by-name/boot", OWNER="root", GROUP="system", MODE="0640"
+ACTION=="add", KERNEL=="block/platform/bootdevice/by-name/recovery", OWNER="root", GROUP="system", MODE="0640"
+ACTION=="add", KERNEL=="block/platform/bootdevice/by-name/misc", OWNER="root", GROUP="system", MODE="0660"
+ACTION=="add", KERNEL=="block/platform/bootdevice/by-name/cache", OWNER="root", GROUP="system", MODE="0660"
+ACTION=="add", KERNEL=="block/platform/bootdevice/by-name/userdata", OWNER="root", GROUP="system", MODE="0660"
+ACTION=="add", KERNEL=="block/platform/bootdevice/by-name/metadata", OWNER="root", GROUP="system", MODE="0660"
+
+# Modem / nvram / proinfo
+ACTION=="add", KERNEL=="block/platform/bootdevice/by-name/md1img", OWNER="root", GROUP="system", MODE="0640"
+ACTION=="add", KERNEL=="block/platform/bootdevice/by-name/md1dsp", OWNER="root", GROUP="system", MODE="0660"
+ACTION=="add", KERNEL=="block/platform/bootdevice/by-name/nvram", OWNER="root", GROUP="system", MODE="0660"
+ACTION=="add", KERNEL=="block/platform/bootdevice/by-name/proinfo", OWNER="root", GROUP="system", MODE="0660"
+
+# Logo / FRP
+ACTION=="add", KERNEL=="block/platform/bootdevice/by-name/logo", OWNER="root", GROUP="system", MODE="0660"
+ACTION=="add", KERNEL=="block/platform/bootdevice/by-name/frp", OWNER="root", GROUP="system", MODE="0660"
+
+# Samsung-specific partitions
+ACTION=="add", KERNEL=="block/platform/bootdevice/by-name/efs", OWNER="root", GROUP="system", MODE="0660"
+ACTION=="add", KERNEL=="block/platform/bootdevice/by-name/sec_efs", OWNER="root", GROUP="system", MODE="0660"
+ACTION=="add", KERNEL=="block/platform/bootdevice/by-name/keydata", OWNER="root", GROUP="system", MODE="0660"
+ACTION=="add", KERNEL=="block/platform/bootdevice/by-name/keyrefuge", OWNER="root", GROUP="system", MODE="0660"
+ACTION=="add", KERNEL=="block/platform/bootdevice/by-name/param", OWNER="root", GROUP="system", MODE="0660"
+ACTION=="add", KERNEL=="block/platform/bootdevice/by-name/vbmeta_system", OWNER="root", GROUP="system", MODE="0660"
+ACTION=="add", KERNEL=="block/platform/bootdevice/by-name/vbmeta_vendor", OWNER="root", GROUP="system", MODE="0660"
+ACTION=="add", KERNEL=="block/platform/bootdevice/by-name/super", OWNER="root", GROUP="system", MODE="0660"
+
+# Modem driver nodes
+ACTION=="add", KERNEL=="ccci*", OWNER="radio", GROUP="radio", MODE="0660"
+ACTION=="add", KERNEL=="eemcs*", OWNER="radio", GROUP="radio", MODE="0660"
+ACTION=="add", KERNEL=="emd*", OWNER="radio", GROUP="radio", MODE="0660"
+
+# Audio driver nodes
+ACTION=="add", KERNEL=="ccci_pcm_rx", OWNER="audio", GROUP="audio", MODE="0660"
+ACTION=="add", KERNEL=="ccci_pcm_tx", OWNER="audio", GROUP="audio", MODE="0660"
+ACTION=="add", KERNEL=="ccci_aud", OWNER="audio", GROUP="audio", MODE="0660"
+ACTION=="add", KERNEL=="ccci2_aud", OWNER="audio", GROUP="audio", MODE="0660"
+ACTION=="add", KERNEL=="ccci3_aud", OWNER="audio", GROUP="audio", MODE="0660"
+ACTION=="add", KERNEL=="ccci_raw_audio", OWNER="audio", GROUP="audio", MODE="0660"
+ACTION=="add", KERNEL=="ccci3_raw_audio", OWNER="audio", GROUP="audio", MODE="0660"
+ACTION=="add", KERNEL=="eemcs_aud", OWNER="audio", GROUP="audio", MODE="0660"
+
+# Touchscreen
+SUBSYSTEM=="input", ATTRS{name}=="mtk-tpd", ENV{ID_INPUT_MOUSE}="0"
+SUBSYSTEM=="input", ATTRS{name}=="sec_touchscreen", ENV{ID_INPUT_MOUSE}="0"

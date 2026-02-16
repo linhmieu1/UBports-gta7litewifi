@@ -1,0 +1,9 @@
+#line 1 "device/lineage/sepolicy/common/dynamic/property_contexts"
+vendor.camera.aux.packageexcludelist     u:object_r:exported_default_prop:s0
+#line 1 "device/lineage/sepolicy/common/vendor/property_contexts"
+# Aux camera whitelist prop readable to everything
+vendor.camera.aux.packagelist          u:object_r:exported_default_prop:s0
+#line 1 "system/sepolicy/reqd_mask/property_contexts"
+# empty property_contexts file - this file is used to generate an empty
+# non-platform property context for devices without any property_contexts
+# customizations.

@@ -1,0 +1,2 @@
+SUBSYSTEM=="input", ATTRS{name}=="mtk-tpd", ENV{ID_INPUT_MOUSE}="0"
+SUBSYSTEM=="input", ATTRS{name}=="sec_touchscreen", ENV{ID_INPUT_MOUSE}="0"
