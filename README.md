@@ -234,7 +234,6 @@ fastboot reboot
 ```
 
 # YAYS, you just install Ubuntu touch on this tablet (While the device is completing its port and flashing can be done, it is still in a very early stage of development.)
-(debug yourself for boot and if you sucess to boot, please pull request that project to this repo)
 
 
 
@@ -257,7 +256,8 @@ while true; do
     sleep 0.5
 done
 ```
-
+# (debug yourself for boot and if you sucess to boot, please pull request that project to this repo and when device can boot i will push it to UBports Gitlab)
+# THANKS FOR READING!!!
 
 
 
