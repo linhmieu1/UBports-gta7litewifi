@@ -5,7 +5,7 @@
 # BASED ON UBPORTS LENOVO M10 HD GEN 2 
 
 
-# Samsung Galaxy Tab A7 Lite
+# Samsung Galaxy Tab A7 Lite 
 
 <div align="center">
   
@@ -46,8 +46,8 @@
 
 ##  Feature Status
 
-### Ubuntu 20.04 Focal - ![11%](https://progress-bar.dev/11)
-(failed to start, only ssh work)
+### Ubuntu 24.04 Focal - ![11%](https://progress-bar.dev/11)
+(show logo few seccond then tủrn off)
 | Feature | Status | Feature | Status |
 |---------|--------|---------|--------|
 | Recovery | ✅ Working | Boot | ❌ Not Working |
@@ -217,15 +217,23 @@ fastboot format:ext4 userdata
 fastboot delete-logical-partition product
 ```
 
-### Step 10: Push Root Filesystem
-```bash
-pv -L 5M images/rootfs.img | adb shell "cat > /data/ubuntu.img"     
-```
-### Step 11: Flash System
+### Step 10: install Filesystem
 
 ```bash
-fastboot flash system images/system.img
+fastboot flash system images/rootfs.img
 ```
+
+### Step 11: copy
+
+
+```bash
+mkdir /data/system-data/
+```
+
+```bash
+cp -a /system_root/* /data/system-data/
+```
+
 
 ### Step 12: Reboot
 
@@ -233,7 +241,8 @@ fastboot flash system images/system.img
 fastboot reboot
 ```
 
-# YAYS, you just install Ubuntu touch on this tablet (While the device is completing its port and flashing can be done, it is still in a very early stage of development.)
+# YAYS, you just install Ubuntu touch on this tablet 
+(While the device is completing its port and flashing can be done, it is still in a very early stage of development.)
 
 
 
