@@ -46,11 +46,11 @@
 
 ##  Feature Status
 
-### Ubuntu 24.04 Focal - ![11%](https://progress-bar.dev/11)
-(show logo few seccond then tủrn off)
+### Ubuntu 24.04 - ![11%](https://progress-bar.dev/11)
+(Booting but device failed to start LightDM)
 | Feature | Status | Feature | Status |
 |---------|--------|---------|--------|
-| Recovery | ✅ Working | Boot | ❌ Not Working |
+| Recovery | ✅ Working | Boot | ✅ Working |
 | SSH | ❌ Not Working | Bluetooth | ❌ Not Working |
 | Charge | ❌ Not Working | Camera | ❌ Not Working |
 | GPU | ❌ Not Working | GPS | ❌ Not Working |
@@ -217,13 +217,13 @@ fastboot format:ext4 userdata
 fastboot delete-logical-partition product
 ```
 
-### Step 10: install Filesystem
+### Step 10: install System
 
 ```bash
 fastboot flash system images/rootfs.img
 ```
 
-### Step 11: copy
+### Step 11: copy Rootfs (i will fix path to /system_root after boot sucessfully)
 
 
 ```bash
