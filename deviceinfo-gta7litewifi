@@ -1,0 +1,39 @@
+# Deviceinfo
+deviceinfo_name="Samsung Galaxy Tab A7 Lite"
+deviceinfo_manufacturer="Samsung"
+deviceinfo_codename="gta7litewifi"
+deviceinfo_arch="aarch64"
+deviceinfo_halium_version="12"
+deviceinfo_kernel_source="https://github.com/gta7lite/android_kernel_samsung_ot8.git"
+deviceinfo_kernel_source_branch="halium-12"
+deviceinfo_kernel_defconfig="gta7litewifi_defconfig halium.config"
+deviceinfo_kernel_clang_compile="true"
+deviceinfo_kernel_llvm_compile="true"
+deviceinfo_kernel_image_name="Image.gz"
+deviceinfo_kernel_cmdline="bootopt=64S3,32N2,64N2 systempart=/dev/mapper/system buildvariant=user"
+deviceinfo_bootimg_qcdt="false"
+
+# Offset
+deviceinfo_bootimg_header_version="2"
+deviceinfo_bootimg_partition_size="33554432"
+deviceinfo_bootimg_os_version="12"
+deviceinfo_bootimg_os_patch_level="2021-09"
+deviceinfo_ramdisk_compression="lz4"
+deviceinfo_flash_pagesize="2048"
+deviceinfo_flash_offset_base="0x00000000"
+deviceinfo_flash_offset_kernel="0x40080000"
+deviceinfo_flash_offset_ramdisk="0x51b00000"
+deviceinfo_flash_offset_second="0x00f00000"
+deviceinfo_flash_offset_tags="0x47880000"
+deviceinfo_flash_offset_dtb="0x47c80000"
+
+# DTB
+deviceinfo_dtb="gta7litewifi_dtb"
+deviceinfo_dtbo="gta7litewifi_dtbo.img"
+
+# Rootfs
+deviceinfo_ubuntu_touch_release="focal"
+deviceinfo_rootfs_image_sector_size="4096"
+deviceinfo_system_partition_size="3600M"
+deviceinfo_rootfs_image_size="1310720"
+
