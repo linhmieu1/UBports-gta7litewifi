@@ -1,5 +1,5 @@
 # 70-gta7litewifi.rules
-# Based on halium-mgki 70-mtk-common.rules, adapted for Ubuntu Touch
+# ALL HERE CORRECTLY (no more waring)
 # Uses numeric UIDs/GIDs where named groups don't exist in Ubuntu Touch userspace
 # android UID/GID map: system=1000, radio=1001, bluetooth=1002, graphics=1003,
 #   input=1004, audio=1005, camera=1006, log=1007, wifi=1010, gps=1021, usb=1018
