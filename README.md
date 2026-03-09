@@ -2,7 +2,7 @@
 
 
 #  
-# BASED ON UBPORTS LENOVO M10 HD GEN 2 
+# MANY BUGS AND DUMB FILES HERE AND I STOP USE IT AS default 
 
 
 # Samsung Galaxy Tab A7 Lite 
@@ -50,7 +50,7 @@
 (Booting but device failed to start LightDM)
 | Feature | Status | Feature | Status |
 |---------|--------|---------|--------|
-| Recovery | ✅ Working | Boot | ✅ Working |
+| Recovery | ✅ Working | Boot | ❌ Not Working |
 | SSH | ❌ Not Working | Bluetooth | ❌ Not Working |
 | Charge | ❌ Not Working | Camera | ❌ Not Working |
 | GPU | ❌ Not Working | GPS | ❌ Not Working |
@@ -265,7 +265,6 @@ while true; do
     sleep 0.5
 done
 ```
-# (debug yourself for boot and if you sucess to boot, please pull request that project to this repo and when device can boot i will push it to UBports Gitlab)
 # THANKS FOR READING!!!
 
 
