@@ -1,11 +1,16 @@
 #!/usr/bin/make -f
+# MOWIS Desktop Environment — Debian build rules
 
 %:
 	dh $@
 
 override_dh_install:
-	dh_install
-	# GSettings overrides for Ubuntu
-ifeq ($(shell dpkg-vendor --is Ubuntu && echo yes),yes)
-	dh_install -pukui-desktop-environment-core debian/ukui-ubuntu.gschema.override /usr/share/glib-2.0/schemas/
-endif
+	# Install MOWIS GSchema override
+	install -D -m 644 debian/mowis.gschema.override \
+		debian/mowis-desktop-environment/usr/share/glib-2.0/schemas/50_mowis.gschema.override
+
+override_dh_auto_build:
+	# Nothing to build — this is a metapackage
+
+override_dh_auto_test:
+	# No tests for metapackage

@@ -1,91 +1,15 @@
-ukui-desktop-environment (3.0.1) jammy; urgency=medium
+mowis-desktop-environment (1.0.0-1) unstable; urgency=medium
 
-  * debian/control: drop kylin-display-switch since
-    ukui-settings-daemon (>=3.1.1) took over the function.
+  * Fork from ukui-desktop-environment
+  * Rebrand to MOWIS (Mobile-Optimized Workspace Interface Shell)
+  * Add Samsung DeX-inspired GSettings defaults
+  * Replace ukui-ubuntu.gschema.override with mowis.gschema.override
+  * Add DeX keyboard shortcuts (Super+arrows snap, Super+1-4 workspaces)
+  * Add picom, rofi, dunst, kvantum to core dependencies
+  * Set ukui-black + Papirus-Dark as default theme
+  * Set Noto Sans as default font family
+  * Disable telemetry and crash reporting by default
+  * Enable edge-tiling by default
+  * Set panel position to top (DeX taskbar style)
 
- -- handsome_feng <jianfengli@ubuntukylin.com>  Tue, 22 Mar 2022 11:49:32 +0800
-
-ukui-desktop-environment (3.0.0) impish; urgency=medium
-
-  * Update README.
-  * debian/control: add ukui-window-switch, kylin-display-switch,
-    kylin-nm to depends.
-
- -- handsome_feng <jianfengli@ubuntukylin.com>  Wed, 18 Aug 2021 16:07:09 +0800
-
-ukui-desktop-environment (2.0.3) groovy; urgency=medium
-
-  * debian/control: remove the dependency on gvfs-bin, which was removed in
-    groovy
-
- -- Olivier Tilloy <olivier.tilloy@canonical.com>  Wed, 16 Sep 2020 17:37:19 +0200
-
-ukui-desktop-environment (2.0.2) focal; urgency=medium
-
-  * debian/control: add qt5-ukui-platformtheme to depends.
-
- -- handsome_feng <jianfengli@ubuntukylin.com>  Tue, 31 Mar 2020 20:34:10 +0800
-
-ukui-desktop-environment (2.0.1) focal; urgency=medium
-
-  * Change the default font size from 14 to 11.
-
- -- handsome_feng <jianfengli@ubuntukylin.com>  Mon, 30 Mar 2020 15:15:34 +0800
-
-ukui-desktop-environment (2.0.0) focal; urgency=medium
-
-  * Drop ukui-indicators and ukui-menus.
-  * Add ukui-sidebar.
-  * Set the default font to 'Noto Sans CJK SC'.
-  * debian/control:
-    - Bump standards-vertion to 4.5.0.
-    - Use debhelper-compat instead of debhelper.
-
- -- handsome_feng <jianfengli@ubuntukylin.com>  Mon, 23 Mar 2020 10:43:33 +0800
-
-ukui-desktop-environment (1.2.1) disco; urgency=medium
-
-  * Drop notification-daemon.
-  * Drop mate-polkit.
-  * Add kylin-nm.
-  * Bump standars-version to 4.3.0, compat level to 12.
-  * Set NotificationDeamon theme to slide.
-
- -- handsome_feng <jianfengli@ubuntukylin.com>  Mon, 18 Mar 2019 10:20:59 +0800
-
-ukui-desktop-environment (1.2.0) cosmic; urgency=medium
-
-  * Drop ubuntu-wallpapers.
-  * Add ubuntukylin-wallpapers.
-  * Change default theme to ukui-black.
-  * Bump standards-version to 4.2.1.
-
- -- handsome_feng <jianfengli@ubuntukylin.com>  Sat, 29 Sep 2018 16:09:58 +0800
-
-ukui-desktop-environment (1.1.1) bionic; urgency=medium
-
-  * Drop mate-settings-daemon, mate-media, mate-power-manager, marco.
-  * Add ukui-settings-daemon, ukui-media, ukui-power-manager, ukwm.
-
- -- handsome_feng <jianfengli@ubuntukylin.com>  Sun, 01 Apr 2018 15:16:50 +0800
-
-ukui-desktop-environment (1.1.0) bionic; urgency=medium
-
-  * Drop mate-panel, mate-menus, mate-utils.
-  * Add ukui-panel, ukui-menus, gnome-screenshot.
-
- -- handsome_feng <jianfengli@ubuntukylin.com>  Wed, 28 Feb 2018 09:26:08 +0800
-
-ukui-desktop-environment (1.0.1) artful; urgency=medium
-
-  * Drop gnome-terminal, evince, file-roller, eog, galculator, gedit.
-  * Add mate-notification-daemon, mate-terminal, atril, engrampa,
-    eom, mate-calc, pluma.
-
- -- handsome_feng <jianfengli@ubuntukylin.com>  Mon, 26 Jun 2017 16:24:39 +0800
-
-ukui-desktop-environment (1.0.0) zesty; urgency=medium
-
-  * Initial release. (LP: #1663477)
-
- -- handsome_feng <jianfengli@ubuntukylin.com>  Mon, 06 Mar 2017 10:17:34 +0800
+ -- MOWIS Project <mowis-dev@proton.me>  Fri, 20 Mar 2026 23:25:08 +0700

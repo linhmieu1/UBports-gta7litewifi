@@ -1,17 +1,17 @@
-Source: ukui-desktop-environment
+Source: mowis-desktop-environment
 Section: x11
 Priority: optional
-Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
-Uploaders: handsome_feng <jianfengli@ubuntukylin.com>,
+Maintainer: MOWIS Project <mowis-dev@proton.me>
+Uploaders: MOWIS Contributors,
 Build-Depends: debhelper-compat (= 12),
                lsb-release,
 Standards-Version: 4.5.0
 Rules-Requires-Root: no
-Homepage: http://www.ukui.org/
-Vcs-Git: https://github.com/ukui/ukui-desktop-environment.git
-Vcs-Browser: https://github.com/ukui/ukui-desktop-environment
+Homepage: https://github.com/mowis-de/mowis-desktop-environment
+Vcs-Git: https://github.com/mowis-de/mowis-desktop-environment.git
+Vcs-Browser: https://github.com/mowis-de/mowis-desktop-environment
 
-Package: ukui-desktop-environment-core
+Package: mowis-desktop-environment-core
 Architecture: all
 Depends: peony,
          ukui-menu,
@@ -26,29 +26,35 @@ Depends: peony,
          ukui-polkit,
          ukui-settings-daemon,
          mate-terminal,
-         ubuntukylin-theme (>= 1.6.2) | ukui-themes,
+         ukui-themes,
+         picom,
+         rofi,
+         dunst,
+         feh,
+         kvantum,
+         qt5ct,
+         papirus-icon-theme,
+         noto-fonts,
+         python3-psutil,
+         python3-gi,
          ${misc:Depends},
-Description: UKUI Desktop Environment (essential components, metapackage)
- The UKUI Desktop Environment is the continuation of MATE. It provides an
- intuitive and attractive desktop environment using traditional metaphors for
- Linux and other Unix-like operating systems.
+Description: MOWIS Desktop Environment (core, metapackage)
+ MOWIS (Mobile-Optimized Workspace Interface Shell) is a Samsung DeX-inspired
+ desktop environment built on top of UKUI — a Qt-based fork of MATE.
  .
- UKUI is under active development to add support for new technologies while
- preserving a traditional desktop experience.
+ MOWIS adds a DeX-style theme layer on top of UKUI's solid foundation,
+ providing frosted-glass compositor effects, a top-bar taskbar, and
+ keyboard shortcuts that mirror the Samsung DeX experience.
  .
- This package depends on a very basic set of programs that are necessary to
- start a UKUI desktop environment session. The set of programs includes the
- UKUI file manager (Peony), the UKUI control center and a limited set of
- other obligatory UKUI desktop components.
+ This package depends on the minimal set of components required to
+ start a MOWIS desktop session.
 
-Package: ukui-desktop-environment
+Package: mowis-desktop-environment
 Architecture: all
-Depends: ukui-desktop-environment-core (= ${binary:Version}),
+Depends: mowis-desktop-environment-core (= ${binary:Version}),
          ${misc:Depends},
-Provides: ukui,
+Provides: mowis, ukui,
 Recommends: atril,
-            desktop-base,
-            ubuntukylin-wallpapers,
             engrampa,
             ffmpegthumbnailer,
             ukui-media,
@@ -59,35 +65,38 @@ Recommends: atril,
             pluma,
             qt5-ukui-platformtheme,
             kylin-nm,
-Suggests: mail-reader | thunderbird,
-          network-manager-gnome,
-          x-www-browser | firefox,
-Description: UKUI Desktop Environment (metapackage)
- The UKUI Desktop Environment is the continuation of MATE. It provides an
- intuitive and attractive desktop environment using traditional metaphors for
- Linux and other Unix-like operating systems.
+            network-manager-applet,
+            blueman,
+            pasystray,
+            scrot,
+            xdotool,
+            wmctrl,
+Suggests: thunderbird,
+          firefox,
+          vlc,
+Description: MOWIS Desktop Environment (metapackage)
+ MOWIS (Mobile-Optimized Workspace Interface Shell) is a Samsung DeX-inspired
+ desktop environment built on top of UKUI — a Qt-based fork of MATE.
  .
- UKUI is under active development to add support for new technologies while
- preserving a traditional desktop experience.
+ MOWIS adds a DeX-style theme layer on top of UKUI's solid foundation,
+ providing frosted-glass compositor effects, a top-bar taskbar, and
+ keyboard shortcuts that mirror the Samsung DeX experience.
  .
- This package installs the standard set of applications that are
- part of the official UKUI release.
+ This package installs the full standard set of MOWIS components.
 
-Package: ukui-desktop-environment-extras
+Package: mowis-desktop-environment-extras
 Architecture: all
-Provides: ukui-extras,
-Depends: ukui-desktop-environment (= ${binary:Version}),
+Provides: mowis-extras, ukui-extras,
+Depends: mowis-desktop-environment (= ${binary:Version}),
          ${misc:Depends},
 Recommends: dconf-editor,
             gnome-keyring,
             yelp,
-Description: UKUI Desktop Environment (extra components, metapackage)
- The UKUI Desktop Environment is the continuation of MATE. It provides an
- intuitive and attractive desktop environment using traditional metaphors for
- Linux and other Unix-like operating systems.
+            ukui-system-monitor,
+            ukui-biometric-auth,
+Description: MOWIS Desktop Environment (extras, metapackage)
+ MOWIS (Mobile-Optimized Workspace Interface Shell) is a Samsung DeX-inspired
+ desktop environment built on top of UKUI — a Qt-based fork of MATE.
  .
- UKUI is under active development to add support for new technologies while
- preserving a traditional desktop experience.
- .
- This package installs an extra set of UKUI components that are
- also part of the official UKUI release.
+ This package installs extra optional components for a more complete
+ MOWIS desktop experience.

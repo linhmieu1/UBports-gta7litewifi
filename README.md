@@ -1,94 +1,162 @@
-## UKUI
+<div align="center">
 
-UKUI is a desktop environment for Linux distributions and other UNIX-like operating systems. It provides a simpler and more enjoyable experience for browsing, searching and managing your computer.
+```
+  __  __  _____  _          __ _  ___
+ |  \/  ||  _  || |        / /| |/ __|
+ | \  / || | | || |  ___  / /_| | |_
+ | |\/| || | | || | / _ \| '_ \ \___ \
+ | |  | |\ \_/ /| ||  __/| (_) |___/ /
+ |_|  |_| \___/ |_| \___| \___/|____/
+```
 
-![ukui3.0](https://www.ukui.org/images/feature_li1.png)
+**Mobile-Optimized Workspace Interface Shell**
 
-## Homepage
-[UKUI Homepage](https://www.ukui.org)
+*Samsung DeX-inspired Desktop Environment*
+*Built on UKUI — Qt fork of MATE*
+
+</div>
+
+---
+
+## What is MOWIS?
+
+MOWIS is a desktop environment for Arch Linux (and other distributions) that
+brings the **Samsung DeX** desktop experience to your PC. It uses
+[UKUI](https://www.ukui.org/) as its engine — a modern Qt-based fork of the
+MATE Desktop Environment — and layers a DeX-inspired theme and configuration
+on top.
+
+### Key features
+
+- **DeX-style top taskbar** via `ukui-panel` positioned at the top
+- **Frosted glass effects** via `picom` (dual-kawase blur + shadows)
+- **Snap window management** — `Super+←/→` snaps windows 50/50
+- **4 workspaces** switchable with `Super+1-4`
+- **Dark theme** — `ukui-black` + Papirus-Dark icons + Kvantum Qt theme
+- **DeX App Launcher** via Rofi with custom MOWIS theme
+- **System widget** showing CPU/RAM/Battery/Network (Python + GTK3)
+- **Qt + GTK unified dark** look across all applications
+
+---
 
 ## Components
-### Core
-* peony
-* peony-extensions
-* ukui-menu
-* ukui-panel
-* ukui-sidebar
-* ukui-media
-* ukui-greeter
-* ukui-screensaver
-* ukui-session-manager
-* ukui-control-center
-* ukui-settings-deamon
-* ukui-power-manager
-* kylin-nm
-* ukui-biometric-auth
-* ukui-kwin
-* ukwm (Used when ukui-kwin is not available, and the side effect is no Gaussian blur)
-* ukui-window-switch
-* qt5-ukui-platformtheme
-* ukui-themes (Or ubuntukylin-theme)
-* ukui-wallpapers (Or ubuntukylin-wallpapers)
 
-### Optional
-* kylin-display-switch (No need with ukui-settings-daemon >=3.1.1)
-* ukui-notification-daemon
-* ukui-biometric-manager
-* ukui-system-monitor
-* libinput-touch-translator
-* biometric-authentication
+### Core (mowis-desktop-environment-core)
+| Component | Role |
+|-----------|------|
+| `ukui-session-manager` | Session management |
+| `ukui-kwin` / `ukwm` | Window manager |
+| `ukui-panel` | Top taskbar (DeX style) |
+| `ukui-settings-daemon` | Settings daemon |
+| `ukui-control-center` | System settings |
+| `ukui-menu` | Application menu |
+| `peony` | File manager |
+| `ukui-sidebar` | Sidebar / Action center |
+| `picom` | Compositor (blur + shadows) |
+| `rofi` | App launcher (DeX drawer) |
+| `dunst` | Notification daemon |
+| `kvantum` | Qt theme engine |
+| `papirus-icon-theme` | Icon theme |
 
-### Deprecated
-* ukui-menus
-* ukui-indicators
+### Optional (mowis-desktop-environment-extras)
+- `ukui-system-monitor`
+- `ukui-biometric-auth`
+- `ukui-screensaver`
+- `ukui-power-manager`
+- `dconf-editor`
+- `gnome-keyring`
+
+---
 
 ## Install
 
-### Ubuntu
-```
-$ sudo apt install ukui-desktop-environment
+### Arch Linux / CachyOS (recommended)
+
+```bash
+# 1. Clone this repo
+git clone https://github.com/mowis-de/mowis-desktop-environment.git
+cd mowis-desktop-environment
+
+# 2. Run install script
+sudo bash install-arch.sh
+
+# 3. Reboot and select "MOWIS Desktop" at SDDM/LightDM
+sudo reboot
 ```
 
-Or you can get the latest version by:
-```
-$ sudo add-apt-repository ppa:ubuntukylin-members/ukui
-$ sudo apt upgrade
+### Ubuntu / Debian
+
+```bash
+sudo apt install mowis-desktop-environment
 ```
 
-### Debian buster (UKUI 2.0)
+*(Or build from source with `dpkg-buildpackage -b --no-sign`)*
+
+---
+
+## Keyboard Shortcuts
+
+| Shortcut | Action |
+|----------|--------|
+| `Super + R` | App Launcher (Rofi) |
+| `Super + E` | File Manager (Peony) |
+| `Super + D` | Show/Hide Desktop |
+| `Super + L` | Lock Screen |
+| `Super + ←` | Snap window left 50% |
+| `Super + →` | Snap window right 50% |
+| `Super + ↑` | Maximize window |
+| `Super + ↓` | Restore window |
+| `Super + 1-4` | Switch workspace |
+| `Super + Shift + 1-4` | Move window to workspace |
+| `Alt + F4` | Close window |
+| `Alt + Tab` | Switch windows |
+| `Print` | Screenshot |
+
+---
+
+## GSettings Defaults
+
+MOWIS ships `mowis.gschema.override` which sets DeX-style defaults for:
+
+- `org.mate.interface` — fonts, GTK theme
+- `org.gnome.desktop.wm.preferences` — titlebar, button layout
+- `org.gnome.desktop.wm.keybindings` — all DeX shortcuts
+- `org.mate.Marco.*` — snap tiling, workspace switching
+- `org.ukui.*` — UKUI-specific theme and panel settings
+- `org.mate.background` — dark background defaults
+- `org.gnome.desktop.privacy` — telemetry off by default
+
+---
+
+## Project Structure
+
 ```
-$ sudo apt install ukui-session-manager ukui-menu ukui-control-center ukui-settings-daemon ukui-window-switch ukui-media ukui-power-manager peony ukui-themes ukui-greeter kylin-display-switch
-$ sudo pip3 install requests
-$ gsettings set org.mate.interface gtk-theme 'ukui-black'
-$ gsettings set org.mate.interface icon-theme 'ukui-icon-theme'
+mowis-desktop-environment/
+├── debian/
+│   ├── changelog                  ← Version history
+│   ├── control                    ← Package dependencies
+│   ├── copyright                  ← License info
+│   ├── rules                      ← Build rules
+│   ├── source/format
+│   └── mowis.gschema.override     ← DeX GSettings defaults ★
+└── README.md
 ```
 
-### Debian bulleye (UKUI 3.0)
-```
-$ sudo apt install ukui-session-manager ukui-menu ukui-control-center ukui-settings-daemon ukui-window-switch ukui-media ukui-power-manager peony ukui-themes ukui-greeter kylin-display-switch ukui-sidebar qt5-ukui-platformtheme kylin-nm ukui-wallpapers
-$ gsettings set org.mate.interface gtk-theme 'ukui-black'
-$ gsettings set org.ukui.style icon-theme-name 'ukui-icon-theme-default'
-```
+---
 
-### Arch
-```
-$ sudo pacman -S ukui xorg-server
-$ sudo systemctl enable lightdm
-```
+## Upstream
 
-### Fedora
-In progress...
+MOWIS is a fork and theme layer on top of [UKUI](https://github.com/ukui/ukui-desktop-environment).
+All UKUI components are used as-is; MOWIS only changes:
+- Default GSettings values (this repo)
+- Theme/compositor configuration
+- Session management scripts
+- Branding
 
-### openEuler
-```
-sudo dnf install ukui
-```
+---
 
-## Upgrade
-```
-sudo apt update
-sudo apt upgrade
-```
+## License
 
-## Issues
-[UKUI issue](www.github.com/ukui/ukui-desktop-environment/issues)
+GPL-2.0-or-later — see [debian/copyright](debian/copyright)
+
+MOWIS Project — inspired by Samsung DeX

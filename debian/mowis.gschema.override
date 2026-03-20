@@ -1,0 +1,164 @@
+# ============================================================
+#  MOWIS GSchema Override
+#  Samsung DeX-inspired defaults for UKUI/MATE GSettings
+#  Installed to: /usr/share/glib-2.0/schemas/
+# ============================================================
+
+# ── Fonts (giữ Noto cho đa ngôn ngữ) ────────────────────────
+[org.mate.interface]
+font-name='Noto Sans 10'
+document-font-name='Noto Sans 10'
+monospace-font-name='Noto Sans Mono 10'
+gtk-theme='ukui-black'
+icon-theme='Papirus-Dark'
+cursor-theme='Adwaita'
+cursor-size=24
+enable-animations=true
+toolbar-style='icons'
+
+# ── Window Manager (Marco) — DeX behavior ───────────────────
+[org.gnome.desktop.wm.preferences]
+mouse-button-modifier='<Alt>'
+theme='ukui-black'
+titlebar-font='Noto Sans Bold 10'
+button-layout=':minimize,maximize,close'
+num-workspaces=4
+action-double-click-titlebar='toggle-maximize'
+action-middle-click-titlebar='lower'
+focus-mode='click'
+auto-raise=false
+auto-raise-delay=500
+raise-on-click=true
+
+# ── Keyboard Shortcuts — DeX style ──────────────────────────
+[org.gnome.desktop.wm.keybindings]
+show-desktop=['<Super>d']
+minimize=['<Alt>F9','<Alt>F5']
+maximize=['<Super>Up']
+unmaximize=['<Super>Down']
+close=['<Alt>F4']
+toggle-fullscreen=['F11']
+switch-to-workspace-1=['<Super>1']
+switch-to-workspace-2=['<Super>2']
+switch-to-workspace-3=['<Super>3']
+switch-to-workspace-4=['<Super>4']
+move-to-workspace-1=['<Super><Shift>1']
+move-to-workspace-2=['<Super><Shift>2']
+move-to-workspace-3=['<Super><Shift>3']
+move-to-workspace-4=['<Super><Shift>4']
+
+# ── Marco-specific keybinds ──────────────────────────────────
+[org.mate.Marco.global-keybindings]
+show-desktop='<Super>d'
+run-dialog='<Alt>F2'
+switch-windows='<Alt>Tab'
+switch-windows-backward='<Alt><Shift>Tab'
+switch-to-workspace-1='<Super>1'
+switch-to-workspace-2='<Super>2'
+switch-to-workspace-3='<Super>3'
+switch-to-workspace-4='<Super>4'
+
+[org.mate.Marco.window-keybindings]
+close='<Alt>F4'
+minimize='<Alt>F9'
+maximize='<Super>Up'
+unmaximize='<Super>Down'
+tile-to-side-w='<Super>Left'
+tile-to-side-e='<Super>Right'
+move-to-workspace-1='<Super><Shift>1'
+move-to-workspace-2='<Super><Shift>2'
+move-to-workspace-3='<Super><Shift>3'
+move-to-workspace-4='<Super><Shift>4'
+
+# ── UKWM / ukui-kwin ────────────────────────────────────────
+[org.ukui.ukwm]
+edge-tiling=true
+
+# ── UKUI Style ───────────────────────────────────────────────
+[org.ukui.style]
+style-name='ukui-black'
+icon-theme-name='Papirus-Dark'
+system-font='Noto Sans'
+system-font-size=10
+widget-theme='ukui-black'
+
+# ── UKUI Desktop ────────────────────────────────────────────
+[org.ukui.desktop.interface]
+gtk-theme='ukui-black'
+icon-theme='Papirus-Dark'
+font-name='Noto Sans 10'
+document-font-name='Noto Sans 10'
+monospace-font-name='Noto Sans Mono 10'
+cursor-theme='Adwaita'
+cursor-size=24
+enable-animations=true
+
+# ── UKUI Panel — top bar, DeX style ─────────────────────────
+[org.ukui.panel.toplevel:/org/ukui/panel/toplevels/top-panel/]
+orientation='top'
+size=44
+auto-hide=false
+enable-animations=true
+
+[org.ukui.panel.toplevel:/org/ukui/panel/toplevels/bottom-panel/]
+auto-hide=true
+auto-hide-size=1
+
+# ── Notifications ────────────────────────────────────────────
+[org.mate.NotificationDaemon]
+theme='slide'
+popup-location='top_right'
+
+# ── Screensaver / Lock ───────────────────────────────────────
+[org.ukui.screensaver]
+lock-enabled=true
+lock-delay=uint32 600
+idle-activation-enabled=true
+power-management-delay=uint32 30
+themes=['screensavers-mowis-dark']
+
+# ── Background ───────────────────────────────────────────────
+[org.mate.background]
+picture-options='zoom'
+show-desktop-icons=true
+primary-color='#0D1117'
+secondary-color='#161B22'
+color-shading-type='vertical-gradient'
+
+[org.gnome.desktop.background]
+picture-options='zoom'
+primary-color='#0D1117'
+secondary-color='#161B22'
+
+# ── File manager (Peony) ─────────────────────────────────────
+[org.ukui.peony.desktop]
+font='Noto Sans 10'
+show-desktop-icons=true
+
+[org.ukui.peony.preferences]
+default-folder-viewer='list-view'
+show-hidden-files=false
+confirm-trash=true
+
+# ── Privacy / Telemetry off ──────────────────────────────────
+[org.gnome.desktop.privacy]
+report-technical-problems=false
+send-software-usage-stats=false
+remember-recent-files=true
+recent-files-max-age=30
+
+# ── Accessibility ────────────────────────────────────────────
+[org.gnome.desktop.a11y.applications]
+screen-keyboard-enabled=false
+screen-magnifier-enabled=false
+
+# ── Input ────────────────────────────────────────────────────
+[org.gnome.desktop.peripherals.keyboard]
+repeat=true
+delay=uint32 300
+repeat-interval=uint32 40
+
+[org.gnome.desktop.peripherals.mouse]
+accel-profile='default'
+speed=0.0
+natural-scroll=false
