@@ -1,0 +1,13 @@
+[Unit]
+Description=Check Microphone
+
+# fixes issue, that microphone does not work after a call, except for calls,
+# see https://github.com/ubports/ubuntu-touch/issues/2022
+
+Wants=pulseaudio.service
+
+[Service]
+ExecStart=/bin/bash "/usr/lib/lxc-android-config/sound-script"
+
+[Install]
+WantedBy=default.target

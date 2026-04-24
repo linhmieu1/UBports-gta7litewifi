@@ -1,0 +1,39 @@
+#!/bin/sh
+set -e
+TARGET_UNIT="$1"
+
+unset UPSTART_SESSION
+systemctl --user unset-environment UPSTART_SESSION 2>/dev/null || true
+
+dbus-update-activation-environment --systemd GNOME_DESKTOP_SESSION_ID=this-is-deprecated 2>/dev/null || true
+
+systemctl --user stop graphical-session.target graphical-session-pre.target 2>/dev/null || true
+
+for unit in $(systemctl --user --no-legend --state=failed list-units 2>/dev/null | cut -f1 -d' '); do
+    if [ "$(systemctl --user show -p PartOf --value $unit 2>/dev/null)" = "graphical-session.target" ]; then
+        systemctl --user reset-failed $unit 2>/dev/null || true
+    fi
+done
+
+systemctl --user list-unit-files --no-legend 2>/dev/null | while read unit status _; do
+    [ "${unit%.service}" != "$unit" ] || continue
+    [ "$status" != "$disabled" ] || continue
+    if [ "$(systemctl --user show -p PartOf --value $unit 2>/dev/null)" = "graphical-session.target" ]; then
+        mkdir -p "$XDG_RUNTIME_DIR/systemd/user/${unit}.d"
+        printf '[Unit]\nAfter=graphical-session-pre.target\n' > "$XDG_RUNTIME_DIR/systemd/user/${unit}.d/graphical-session-pre.conf"
+    fi
+done
+
+systemctl --user daemon-reload 2>/dev/null || true
+
+stop_session() {
+    ret=$?
+    trap - EXIT HUP INT QUIT TERM
+    dbus-update-activation-environment --systemd GNOME_DESKTOP_SESSION_ID= 2>/dev/null || true
+    systemctl --user stop "$TARGET_UNIT" graphical-session-pre.target 2>/dev/null || true
+    exit $ret
+}
+trap stop_session EXIT HUP INT QUIT TERM
+
+set +e
+systemctl --user start --wait "$TARGET_UNIT"

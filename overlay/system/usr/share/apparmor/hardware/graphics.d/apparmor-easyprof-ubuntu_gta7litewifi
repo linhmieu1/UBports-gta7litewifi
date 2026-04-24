@@ -1,0 +1,6 @@
+/dev/dri/card0 rw,
+/dev/dri/renderD128 rw,
+/dev/pvr_sync rw,
+/dev/pvrsrvkm rw,
+/sys/class/misc/pvr_sync/ r,
+/sys/class/misc/pvr_sync/dev r,

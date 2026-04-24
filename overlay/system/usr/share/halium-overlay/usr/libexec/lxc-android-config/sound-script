@@ -1,0 +1,21 @@
+#!/bin/sh
+
+# Temporary fix for mic on Ubuntu Touch refer to https://github.com/ubports/ubuntu-touch/issues/2022
+
+while true 
+do
+  status=$(pacmd list-source-outputs | awk 'NR == 1 {print $1}')
+  if [[ $status -eq 0 ]]
+  then
+    checked=0
+  fi
+  if [[ $status > 0 && checked -eq 0 ]]
+    then
+    parecord -r > /dev/null &
+    pid=$!
+    sleep 1
+    kill $pid
+    checked=1
+  fi
+  sleep 2
+done

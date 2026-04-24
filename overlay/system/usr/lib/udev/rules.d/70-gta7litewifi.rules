@@ -1,0 +1,99 @@
+# 70-gta7litewifi.rules
+
+# Basic devices
+ACTION=="add", KERNEL=="null|zero|full|ptmx|tty|random|urandom", OWNER="root", GROUP="root", MODE="0666"
+ACTION=="add", KERNEL=="ashmem*", OWNER="root", GROUP="root", MODE="0666"
+ACTION=="add", KERNEL=="binder|hwbinder|vndbinder", OWNER="root", GROUP="root", MODE="0666"
+
+# Logging
+ACTION=="add", KERNEL=="pmsg0", OWNER="root", GROUP="1007", MODE="0222"
+ACTION=="add", KERNEL=="log/ksystem", OWNER="root", GROUP="1007", MODE="0600"
+
+# Graphics
+ACTION=="add", KERNEL=="mali0|mali*|ion", OWNER="1000", GROUP="1003", MODE="0666"
+ACTION=="add", KERNEL=="graphics/*", OWNER="root", GROUP="1003", MODE="0660"
+ACTION=="add", KERNEL=="dri/*", OWNER="root", GROUP="1003", MODE="0666"
+ACTION=="add", KERNEL=="dri/card0", OWNER="1000", GROUP="1000", MODE="0660"
+ACTION=="add", KERNEL=="pvrsrvkm|pvr_sync", OWNER="root", GROUP="root", MODE="0666"
+
+# DMA heap
+ACTION=="add", SUBSYSTEM=="dma_heap", KERNEL=="system|system-uncached|system-secure", OWNER="1000", GROUP="1000", MODE="0444"
+ACTION=="add", SUBSYSTEM=="dma_heap", KERNEL=="mtk_mm|mtk_mm-uncached", OWNER="1000", GROUP="1003", MODE="0444"
+ACTION=="add", SUBSYSTEM=="dma_heap", KERNEL=="mtk_svp*|mtk_prot*|mtk_2d*|mtk_wfd*|mtk_sapu*", OWNER="1000", GROUP="1000", MODE="0444"
+
+# MTK display
+ACTION=="add", KERNEL=="mtk_disp_mgr|mtkfb_vsync|sw_sync", OWNER="1000", GROUP="1003", MODE="0660"
+
+# Input
+ACTION=="add", KERNEL=="input/*|v4l-touch*", OWNER="root", GROUP="1004", MODE="0660"
+ACTION=="add", SUBSYSTEM=="input", ATTRS{name}=="sec_touchscreen|mtk-tpd|touch", GROUP="1004", MODE="0660"
+ACTION=="add", KERNEL=="touch|hotknot", OWNER="root", GROUP="1000", MODE="0660"
+ACTION=="add", KERNEL=="uhid|uinput", OWNER="root", GROUP="root", MODE="0660"
+
+# Audio
+ACTION=="add", KERNEL=="snd/*", OWNER="1000", GROUP="1005", MODE="0660"
+ACTION=="add", KERNEL=="Vcodec|vow", OWNER="1046", GROUP="1000", MODE="0660"
+ACTION=="add", KERNEL=="ccci_pcm_rx|ccci_pcm_tx|ccci_aud|ccci2_aud|ccci3_aud", OWNER="1005", GROUP="1005", MODE="0660"
+ACTION=="add", KERNEL=="ccci_raw_audio|ccci3_raw_audio|eemcs_aud", OWNER="1005", GROUP="1005", MODE="0660"
+
+# Camera / Video
+ACTION=="add", KERNEL=="video*|media*|v4l-subdev*", OWNER="1006", GROUP="1000", MODE="0660"
+ACTION=="add", KERNEL=="vcu|mtk_hcp", OWNER="1006", GROUP="1000", MODE="0660"
+ACTION=="add", KERNEL=="camera_eeprom*", OWNER="1000", GROUP="1006", MODE="0660"
+
+# USB
+ACTION=="add", KERNEL=="bus/usb/*", OWNER="root", GROUP="1018", MODE="0660"
+ACTION=="add", KERNEL=="mtp_usb", OWNER="root", GROUP="plugdev", MODE="0660"
+ACTION=="add", KERNEL=="usb_accessory", OWNER="root", GROUP="1018", MODE="0660"
+ACTION=="add", KERNEL=="ttyUSB[0-9]*", OWNER="1001", GROUP="1001", MODE="0660"
+ACTION=="add", KERNEL=="ttyACM0", OWNER="1001", GROUP="1001", MODE="0660"
+
+# Radio / Modem
+ACTION=="add", KERNEL=="ccci*|ttyC*|eemcs*|emd*", OWNER="1001", GROUP="1001", MODE="0660"
+ACTION=="add", KERNEL=="ttyRB*", OWNER="1001", GROUP="1001", MODE="0660"
+ACTION=="add", KERNEL=="ttySDIO*", OWNER="1001", GROUP="1000", MODE="0660"
+ACTION=="add", KERNEL=="mtgpio", OWNER="1001", GROUP="root", MODE="0600"
+
+# Connectivity (WMT/BT/GPS/WiFi)
+ACTION=="add", KERNEL=="stpwmt|wmtdetect|fw_log_wmt|conninfra_dev|conn_pwr_dev", OWNER="1000", GROUP="1000", MODE="0660"
+ACTION=="add", KERNEL=="stpbt|fw_log_bt", OWNER="1002", GROUP="1002", MODE="0660"
+ACTION=="add", KERNEL=="stpgps|gps*|fw_log_gps|gps_emi|gps2scp|gps_pwr|gpsdl*", OWNER="1021", GROUP="1021", MODE="0660"
+ACTION=="add", KERNEL=="wmtWifi|fw_log_wifi", OWNER="1001", GROUP="1001", MODE="0660"
+ACTION=="add", KERNEL=="stpant", OWNER="1000", GROUP="1000", MODE="0660"
+
+# Bluetooth
+ACTION=="add", KERNEL=="btif", OWNER="1000", GROUP="1000", MODE="0600"
+
+# FM Radio
+ACTION=="add", KERNEL=="fm", OWNER="1006", GROUP="1006", MODE="0660"
+
+# NFC / Secure element
+ACTION=="add", KERNEL=="st21nfc", OWNER="root", GROUP="1001", MODE="0660"
+ACTION=="add", KERNEL=="st54spi", OWNER="root", GROUP="root", MODE="0660"
+
+# TEE / Security
+ACTION=="add", KERNEL=="trusty-ipc-dev0|nebula-ipc-dev0", OWNER="1000", GROUP="1000", MODE="0660"
+ACTION=="add", KERNEL=="mobicore", OWNER="1000", GROUP="1000", MODE="0600"
+ACTION=="add", KERNEL=="mobicore-user|t-base-tui|teeperf", OWNER="1000", GROUP="1000", MODE="0666"
+
+# Block devices
+ACTION=="add", KERNEL=="mmcblk0*|sd[a-z]*", OWNER="root", GROUP="1000", MODE="0660"
+ACTION=="add", KERNEL=="block/platform/bootdevice/by-name/*", OWNER="root", GROUP="1000", MODE="0660"
+ACTION=="add", KERNEL=="block/by-name/misc2|block/by-name/seccfg|block/by-name/proinfo", OWNER="root", GROUP="1000", MODE="0660"
+ACTION=="add", KERNEL=="block/by-name/nvram|block/by-name/para|block/by-name/logo|block/by-name/frp", OWNER="root", GROUP="1000", MODE="0660"
+ACTION=="add", KERNEL=="block/by-name/boot|block/by-name/recovery|block/by-name/secro", OWNER="root", GROUP="1000", MODE="0640"
+ACTION=="add", KERNEL=="block/by-name/md1img*|block/by-name/boot_para", OWNER="root", GROUP="1000", MODE="0640"
+ACTION=="add", KERNEL=="block/by-name/otp|otp", OWNER="1000", GROUP="1000", MODE="0660"
+ACTION=="add", KERNEL=="misc-sd", OWNER="root", GROUP="1000", MODE="0660"
+
+# Network
+ACTION=="add", KERNEL=="tun", OWNER="1000", GROUP="1000", MODE="0660"
+ACTION=="add", KERNEL=="ppp", OWNER="1001", GROUP="1000", MODE="0660"
+ACTION=="add", KERNEL=="mddp", OWNER="1000", GROUP="1000", MODE="0660"
+
+# Misc
+ACTION=="add", KERNEL=="rtc0", OWNER="1000", GROUP="1000", MODE="0640"
+ACTION=="add", KERNEL=="tty0", OWNER="root", GROUP="1000", MODE="0660"
+ACTION=="add", KERNEL=="spidev1.0", OWNER="1000", GROUP="1000", MODE="0666"
+ACTION=="add", KERNEL=="irtx|lirc*|ir-learning", OWNER="1000", GROUP="1000", MODE="0660"
+ACTION=="add", KERNEL=="RT_Monitor|kick_powerkey", OWNER="1000", GROUP="1000", MODE="0660"

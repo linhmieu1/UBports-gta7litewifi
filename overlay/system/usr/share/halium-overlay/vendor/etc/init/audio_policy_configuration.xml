@@ -1,0 +1,48 @@
+<audioPolicyConfiguration version="1.0" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <globalConfiguration speaker_drc_enabled="false" call_screen_mode_supported="true"/>
+
+    <modules>
+        <module name="primary" halVersion="3.0"> <attachedDevices>
+                <item>Speaker</item>
+                <item>Built-In Mic</item>
+            </attachedDevices>
+            <defaultOutputDevice>Speaker</defaultOutputDevice>
+
+            <mixPorts>
+                <mixPort name="primary output" role="source" flags="AUDIO_OUTPUT_FLAG_PRIMARY|AUDIO_OUTPUT_FLAG_FAST">
+                    <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
+                             samplingRates="44100,48000" channelMasks="AUDIO_CHANNEL_OUT_STEREO"/>
+                    </mixPort>
+                    <mixPort name="primary input" role="sink">
+                        <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
+                                 samplingRates="8000,16000,44100,48000"
+                                 channelMasks="AUDIO_CHANNEL_IN_MONO,AUDIO_CHANNEL_IN_STEREO"/>
+                        </mixPort>
+                    </mixPorts>
+
+                    <devicePorts>
+                        <devicePort tagName="Speaker" role="sink" type="AUDIO_DEVICE_OUT_SPEAKER">
+                            <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
+                                     samplingRates="44100,48000" channelMasks="AUDIO_CHANNEL_OUT_STEREO"/>
+                            </devicePort>
+                            <devicePort tagName="Built-In Mic" type="AUDIO_DEVICE_IN_BUILTIN_MIC" role="source">
+                                <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
+                                         samplingRates="8000,16000,44100,48000"
+                                         channelMasks="AUDIO_CHANNEL_IN_MONO,AUDIO_CHANNEL_IN_STEREO"/>
+                                </devicePort>
+                            </devicePorts>
+
+                            <routes>
+                                <route type="mix" sink="Speaker" sources="primary output"/>
+                                <route type="mix" sink="primary input" sources="Built-In Mic"/>
+                            </routes>
+                        </module>
+
+                        <xi:include href="a2dp_audio_policy_configuration.xml"/>
+                        <xi:include href="usb_audio_policy_configuration.xml"/>
+                        <xi:include href="r_submix_audio_policy_configuration.xml"/>
+                    </modules>
+
+                    <xi:include href="audio_policy_volumes.xml"/>
+                    <xi:include href="default_volume_tables.xml"/>
+                </audioPolicyConfiguration>
