@@ -125,3 +125,22 @@ fastboot flash system images/rootfs.img
 ```bash
 fastboot reboot
 ```
+
+
+
+
+# debug note
+
+
+if you have error in during building kernel
+install requirement in UBports docs
+
+if you found error like "mkdtboimg.py: error: argument dt_file: can't open" run this:
+cp gta7litewifi_dtbo.img workdir/downloads/KERNEL_OBJ/arch/arm64/boot/dts/gta7litewifi_dtbo.img
+cp gta7litewifi_dtb workdir/downloads/KERNEL_OBJ/arch/arm64/boot/dts/gta7litewifi_dtb
+
+
+
+
+
+
