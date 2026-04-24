@@ -38,6 +38,7 @@ deviceinfo_dtbo="gta7litewifi_dtbo.img"
 
 # Rootfs
 deviceinfo_ubuntu_touch_release="focal"
+# change to xennial if you can (xennial more compatible kernel 4.19)
 deviceinfo_rootfs_image_sector_size="4096"
 deviceinfo_system_partition_size="3600M"
 deviceinfo_rootfs_image_size="1310720"
