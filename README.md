@@ -139,6 +139,10 @@ if you found error like "mkdtboimg.py: error: argument dt_file: can't open" run 
 cp gta7litewifi_dtbo.img workdir/downloads/KERNEL_OBJ/arch/arm64/boot/dts/gta7litewifi_dtbo.img
 cp gta7litewifi_dtb workdir/downloads/KERNEL_OBJ/arch/arm64/boot/dts/gta7litewifi_dtb
 
+fix overlay not merge to images
+ota/command replace "update device_gta7litewifi_usrmerge.tar device_gta7litewifi_usrmerge.tar.asc"
+with update device_gta7litewifi_usrmerge.tar.xz device_gta7litewifi_usrmerge.tar.xz.asc"
+
 
 
 
